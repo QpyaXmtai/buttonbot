@@ -34,7 +34,7 @@ let handler = async (m, { conn }) => {
 }
 handler.help = ['botstatus']
 handler.tags = ['info']
-handler.command = /^botstat(us)?$/i
+handler.command = /^status(us)?$/i
 
 module.exports = handler
 
