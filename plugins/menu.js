@@ -9,19 +9,6 @@ const defaultMenu = {
 ┌─〔 %me 〕
 ├ Hai, %name!
 │
-├ Tersisa *%limit Limit*
-├ Role *%role*
-├ Level *%level (%exp / %maxexp)* [%xp4levelup]
-├ %totalexp XP secara Total
-│ 
-├ Tanggal: *%week %weton, %date*
-├ Tanggal Islam: *%dateIslamic*
-├ Waktu: *%time*
-│
-├ Uptime: *%uptime (%muptime)*
-├ Database: %rtotalreg dari %totalreg
-├ Github:
-├ %github
 └────
 %readmore`.trimStart(),
   header: '┌─〔 %category 〕',
@@ -189,14 +176,14 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
         "listMessage": {
           "title": `${ucapan()}, ${name}`.trim(),
-          "description": "© stikerin",
-          "buttonText": "Klik Disini",
+          "description": "© supuna",
+          "buttonText": "click here 👇",
           "listType": "SINGLE_SELECT",
           "sections": [
             {
               "rows": [
                 {
-                  "title": `Semua Perintah`,
+                  "title": `ALL MENU`,
                   "description": "",
                   "rowId": ".? all"
                 }, {
@@ -377,7 +364,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    await conn.send2ButtonLoc(m.chat, await (await fetch(fla + teks)).buffer(), text.trim(), 'made with ❤️ by ariffb', 'Pemilik Bot', '.owner', 'Donasi', '.donasi', m)
+    await conn.send2ButtonLoc(m.chat, await (await fetch(fla + teks)).buffer(), text.trim(), 'made with ❤️ by BOT KINGDOM', 'clone', '.jadibot', 'MAINGROUP', '.donasi', m)
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
@@ -410,19 +397,19 @@ function clockString(ms) {
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
 }
 function ucapan() {
-  const time = moment.tz('Asia/Jakarta').format('HH')
-  res = "Selamat dinihari"
+  const time = moment.tz('Asia/Colombo').format('HH')
+  res = "WELCOME"
   if (time >= 4) {
-    res = "Selamat pagi"
+    res = "ගුඩ් මෝනිං☕"
   }
   if (time > 10) {
-    res = "Selamat siang"
+    res = "සුබ දහවලක්"
   }
   if (time >= 15) {
-    res = "Selamat sore"
+    res = "🥂 evening "
   }
   if (time >= 18) {
-    res = "Selamat malam"
+    res = "ගුඩ් නයිට් "
   }
   return res
 }
